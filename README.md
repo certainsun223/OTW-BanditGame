@@ -7,37 +7,143 @@ Personal notes, hints, and scripts for the OverTheWire Bandit wargame.
 This repository contains my personal notes, hints, scripts, and learnings while solving the OverTheWire Bandit wargame. It may contain spoilers (including passwords). Use at your own discretion.
 
 ---
+# OverTheWire Bandit — Level 0 → Level 1
 
-## Level 0 — Connect to the Server
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 0 → level 1**.
 
-Goal
-- Connect to the Bandit server via SSH.
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
 
-Key concepts
-- To connect using `ssh` you need:
-  - Server IP / hostname
-  - Username
-  - Password
+---
 
-SSH syntax
-- Basic SSH syntax:
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Attempt to connect (no username specified):
+
 ```bash
-ssh username@host
+ssh bandit.labs.overwire.org -p 2220
 ```
 
-Example (Bandit Level 0)
+*(No further output shown in the transcript for this exact command — the user subsequently tried the correct username form.)*
+
+2. Connect with the `bandit0` username (correct form):
+
 ```bash
-ssh bandit0@bandit.labs.overthewire.org -p 2220
-# Password for this initial connection: bandit0
+ssh -p 2220 bandit0@bandit.labs.overthewire.org
 ```
 
-Notes
-- Once connected, the objective for Level 0 is to access the file that contains the password for the next level. Common commands to explore files are `ls`, `cat`, and `file`.
-- This repository is for personal documentation and learning — expect spoilers (passwords, solutions) in the notes for each level.
+**Output / interaction** (condensed):
 
-Spoiler / Level 1 password (if you're looking for it)
+* SSH prompts for password.
+* On successful login the server displays the OverTheWire/Bandit welcome ASCII art and help text (omitted here for brevity in the README). Example header shown during login:
+
 ```
-ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+                        _                     _ _ _   
+                       | |__   __ _ _ __   __| (_) |_
+                       | '_ \ / _` | '_ \ / _` | | __|
+                       | |_) | (_| | | | | (_| | | |_
+                       |_.__/ \__,_|_| |_|\__,_|_|\__|
+
+                     This is an OverTheWire game server.
+           More information on http://www.overthewire.org/wargames
 ```
 
+3. List files in the home directory:
 
+```bash
+ls
+```
+
+**Output:**
+
+```
+readme
+```
+
+4. Try to `cd` into `/readme` (incorrect path):
+
+```bash
+cd /readme
+```
+
+**Output:**
+
+```
+-bash: cd: /readme: No such file or directory
+```
+
+5. Try to `cd` into `readme` (it's actually a file, not a directory):
+
+```bash
+cd readme
+```
+
+**Output:**
+
+```
+-bash: cd: readme: Not a directory
+```
+
+6. Display the contents of the `readme` file with `cat`:
+
+```bash
+cat readme
+```
+
+**Output (the file contents):**
+
+```
+Congratulations on your first steps into the bandit game!!
+Please make sure you have read the rules at https://overthewire.org/rules/
+If you are following a course, workshop, walkthrough or other educational activity,
+please inform the instructor about the rules as well and encourage them to
+contribute to the OverTheWire community so we can keep these games free!
+
+The password you are looking for is: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+```
+
+7. Exit the SSH session:
+
+```bash
+exit
+```
+
+**Output:**
+
+```
+logout
+Connection to bandit.labs.overthewire.org closed.
+```
+
+---
+
+## Password obtained for Level 0 → Level 1
+
+**Password:** `ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If`
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit0@bandit.labs.overthewire.org` → `ls` → `cd /readme` → `cd readme` → `cat readme` → `exit`.
+* The password for the next level is shown in the `readme` file and captured above.
+
+---
+
+## Notes & etiquette
+
+* OverTheWire requests that players **do not post level passwords publicly**. Keep the password private between you and the game's next step unless you are sharing inside a private classroom or study group.
+* When playing further levels, follow the same practice: document commands and outputs for your own learning, but avoid public spoilers.
+
+---
+
+If you want, I can:
+
+* convert this README to a single-file (e.g. `Bandit-Level-0-to-1-README.md`) and provide it as a downloadable file, or
+* produce similar READMEs for subsequent Bandit levels using transcripts you provide.
