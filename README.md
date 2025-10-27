@@ -1,52 +1,43 @@
 # OTW-BanditGame
-it’s a personal Bandit progress repo
 
+Personal notes, hints, and scripts for the OverTheWire Bandit wargame.
 
+## OverTheWire — Bandit Walkthrough (Personal Notes)
 
-
-# OverTheWire — Bandit Walkthrough (Personal Notes)
-
-This repository contains my personal notes, hints, scripts, and learnings while solving the OverTheWire Bandit wargame.  
-
-
-# Level 0 — Connect to the Server
-
-This document contains my personal notes and hints for **Bandit Level 0**.  
+This repository contains my personal notes, hints, scripts, and learnings while solving the OverTheWire Bandit wargame. It may contain spoilers (including passwords). Use at your own discretion.
 
 ---
 
-## Goal
-The objective of Level 0 is to connect to the Bandit server via `ssh`.
+## Level 0 — Connect to the Server
 
----
+Goal
+- Connect to the Bandit server via SSH.
 
-## Key Concepts
-To connect using `ssh`, you always need three things:
+Key concepts
+- To connect using `ssh` you need:
+  - Server IP / hostname
+  - Username
+  - Password
 
-- Server IP / hostname  
-- Username  
-- Password  
-
-The basic SSH syntax is:
+SSH syntax
+- Basic SSH syntax:
 ```bash
 ssh username@host
+```
 
+Example (Bandit Level 0)
+```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
-# Use 'bandit0' as the password as well
+# Password for this initial connection: bandit0
+```
 
+Notes
+- Once connected, the objective for Level 0 is to access the file that contains the password for the next level. Common commands to explore files are `ls`, `cat`, and `file`.
+- This repository is for personal documentation and learning — expect spoilers (passwords, solutions) in the notes for each level.
 
+Spoiler / Level 1 password (if you're looking for it)
+```
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+```
 
-<img width="882" height="256" alt="image" src="https://github.com/user-attachments/assets/199c1824-230d-453f-9558-d2da32049497" />
-
-
-
-
-
-
-
-<img width="883" height="588" alt="image" src="https://github.com/user-attachments/assets/8c51b0bb-acf4-430b-909e-341091f15603" />
-
-
-
-The password you are looking for is: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 
