@@ -11,7 +11,7 @@ This repository contains my personal notes, hints, scripts, and learnings while 
 
 This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 0 → level 1**.
 
-> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
 
 ---
 
@@ -66,31 +66,8 @@ ls
 readme
 ```
 
-4. Try to `cd` into `/readme` (incorrect path):
 
-```bash
-cd /readme
-```
-
-**Output:**
-
-```
--bash: cd: /readme: No such file or directory
-```
-
-5. Try to `cd` into `readme` (it's actually a file, not a directory):
-
-```bash
-cd readme
-```
-
-**Output:**
-
-```
--bash: cd: readme: Not a directory
-```
-
-6. Display the contents of the `readme` file with `cat`:
+4. Display the contents of the `readme` file with `cat`:
 
 ```bash
 cat readme
@@ -131,19 +108,10 @@ Connection to bandit.labs.overthewire.org closed.
 
 ## Minimal summary
 
-* Commands used in order: `ssh -p 2220 bandit0@bandit.labs.overthewire.org` → `ls` → `cd /readme` → `cd readme` → `cat readme` → `exit`.
+* Commands used in order: `ssh -p 2220 bandit0@bandit.labs.overthewire.org` → `ls` →  `cat readme` → `exit`.
 * The password for the next level is shown in the `readme` file and captured above.
 
 ---
-
-## Notes & etiquette
-
-* OverTheWire requests that players **do not post level passwords publicly**. Keep the password private between you and the game's next step unless you are sharing inside a private classroom or study group.
-* When playing further levels, follow the same practice: document commands and outputs for your own learning, but avoid public spoilers.
-
----
-
-If you want, I can:
 
 * convert this README to a single-file (e.g. `Bandit-Level-0-to-1-README.md`) and provide it as a downloadable file, or
 * produce similar READMEs for subsequent Bandit levels using transcripts you provide.
