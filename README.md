@@ -185,26 +185,7 @@ cat ./-
 
 ## Minimal summary
 
-* Commands used in order: `ssh -p 2220 bandit1@bandit.labs.overthewire.org` → `ls` → `cd /-` → `cat ./-` → `exit`.
+* Commands used in order: `ssh -p 2220 bandit1@bandit.labs.overthewire.org` → `ls` → `cat ./-`.
 * The password for the next level is the contents of the file named `-`, displayed with `cat ./-` and captured above.
-
----
-
-## Notes & etiquette
-
-* OverTheWire requests that players **do not post level passwords publicly**. Keep the password private between you and the game's next step unless you are sharing inside a private classroom or study group.
-* When playing further levels, follow the same practice: document commands and outputs for your own learning, but avoid public spoilers.
-
----
-
-If you want, I can:
-
-* convert this README to a single-file (e.g. `Bandit-Level-1-to-2-README.md`) and provide it as a downloadable file, or
-* produce similar READMEs for subsequent Bandit levels using transcripts you provide.
-
-
-
-
-
 
 
