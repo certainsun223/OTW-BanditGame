@@ -275,3 +275,113 @@ Connection to bandit.labs.overthewire.org closed.
 ---
 
 
+
+
+
+# OverTheWire Bandit — Level 3 → Level 4
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 3 → level 4**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers) unless you're using it privately for the game.
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Connect with the `bandit3` username:
+
+```bash
+ssh -p 2220 bandit3@bandit.labs.overthewire.org
+```
+
+**Output / interaction** (condensed):
+
+* SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner.
+
+2. List files in the home directory:
+
+```bash
+ls
+```
+
+**Output:**
+
+```
+inhere
+```
+
+
+3. Change into the relative directory `./inhere`:
+
+```bash
+cd ./inhere
+```
+
+**Output / prompt:**
+
+```
+bandit3@bandit:~/inhere$
+```
+
+
+4. Run `find` to search the directory (no args):
+
+```bash
+find
+```
+
+**Output:**
+
+```
+.
+./...Hiding-From-You
+```
+
+5. Display the hidden file named `...Hiding-From-You` using `cat`:
+
+```bash
+cat ./...Hiding-From-You
+```
+
+**Output (the file contents, which is the password):**
+
+```
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+```
+
+6. (Optional) Exit the SSH session:
+
+```bash
+exit
+```
+
+**Output:**
+
+```
+logout
+Connection to bandit.labs.overthewire.org closed.
+```
+
+---
+
+## Password obtained for Level 3 → Level 4
+
+**Password:** `2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ`
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit3@bandit.labs.overthewire.org` → `ls` → `cd ./inhere` → `ls`/`pwd`/`ls -l` → `find` → `cat ./...Hiding-From-You` → `exit`.
+* The password for the next level is the contents of the hidden file `...Hiding-From-You` found by `find` and displayed with `cat`.
+
+---
+
+
