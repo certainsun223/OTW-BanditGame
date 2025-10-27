@@ -379,9 +379,180 @@ Connection to bandit.labs.overthewire.org closed.
 
 ## Minimal summary
 
-* Commands used in order: `ssh -p 2220 bandit3@bandit.labs.overthewire.org` → `ls` → `cd ./inhere` → `ls`/`pwd`/`ls -l` → `find` → `cat ./...Hiding-From-You` → `exit`.
+* Commands used in order: `ssh -p 2220 bandit3@bandit.labs.overthewire.org` → `ls` → `cd ./inhere` → `find` → `cat ./...Hiding-From-You` → `exit`.
 * The password for the next level is the contents of the hidden file `...Hiding-From-You` found by `find` and displayed with `cat`.
 
 ---
+
+
+
+
+
+# OverTheWire Bandit — Level 4 → Level 5
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 4 → level 5**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers) unless you're using it privately for the game.
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Connect with the `bandit4` username:
+
+```bash
+ssh -p 2220 bandit4@bandit.labs.overthewire.org
+```
+
+**Output / interaction** (condensed):
+
+* SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner.
+
+2. List files in the home directory:
+
+```bash
+ls
+```
+
+**Output:**
+
+```
+inhere
+```
+
+3. Change into the `inhere` directory and list files:
+
+```bash
+cd ./inhere
+ls
+```
+
+**Output:**
+
+```
+-file00  -file02  -file04  -file06  -file08
+-file01  -file03  -file05  -file07  -file09
+```
+
+4. Use `find` to list files (shows same names):
+
+```bash
+find
+```
+
+**Output:**
+
+```
+.
+./-file02
+./-file04
+./-file08
+./-file00
+./-file07
+./-file06
+./-file01
+./-file03
+./-file05
+./-file09
+```
+
+5. Use `ls -l` to inspect file sizes and permissions:
+
+```bash
+ls -l
+```
+
+**Output (truncated):**
+
+```
+total 40
+-rw-r----- 1 bandit5 bandit4 33 Oct 14 09:26 -file00
+-rw-r----- 1 bandit5 bandit4 33 Oct 14 09:26 -file01
+...
+-rw-r----- 1 bandit5 bandit4 33 Oct 14 09:26 -file07
+...
+```
+
+6. Use `du` to check disk usage:
+
+```bash
+du
+```
+
+**Output:**
+
+```
+44	.
+```
+
+7. Use `file` to determine file types:
+
+```bash
+file ./*
+```
+
+**Output:**
+
+```
+./-file00: data
+./-file01: data
+./-file02: data
+./-file03: data
+./-file04: data
+./-file05: data
+./-file06: data
+./-file07: ASCII text
+./-file08: data
+./-file09: data
+```
+
+8. Display the contents of the readable text file `-file07` (note the leading dash — use `./-file07` to avoid option parsing):
+
+```bash
+cat ./-file07
+```
+
+**Output (the file contents, which is the password):**
+
+```
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+```
+
+9. (Optional) Exit the SSH session:
+
+```bash
+exit
+```
+
+**Output:**
+
+```
+logout
+Connection to bandit.labs.overthewire.org closed.
+```
+
+---
+
+## Password obtained for Level 4 → Level 5
+
+**Password:** `4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw`
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit4@bandit.labs.overthewire.org` → `ls` → `cd ./inhere` → `ls`/`find`/`ls -l` → `file ./*` → `cat ./-file07` → `exit`.
+* The password for the next level is the contents of `-file07`, displayed with `cat` and captured above.
+
+---
+
+
 
 
