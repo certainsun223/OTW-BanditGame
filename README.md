@@ -189,3 +189,89 @@ cat ./-
 * The password for the next level is the contents of the file named `-`, displayed with `cat ./-` and captured above.
 
 
+
+
+
+
+
+
+# OverTheWire Bandit — Level 2 → Level 3
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 2 → level 3**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Connect with the `bandit2` username:
+
+```bash
+ssh -p 2220 bandit2@bandit.labs.overthewire.org
+```
+
+**Output / interaction** (condensed):
+
+* First password attempt failed with "Permission denied, please try again." Then a second password was entered and login succeeded, showing the Bandit welcome banner.
+
+2. List files in the home directory:
+
+```bash
+ls
+```
+
+**Output:**
+
+```
+--spaces in this filename--
+```
+
+3. Display the contents of the file whose name contains spaces. Because the filename contains spaces, use quoting (and `--` to stop option parsing) when passing it to `cat`:
+
+```bash
+cat -- "--spaces in this filename--"
+```
+
+**Output (the file contents, which is the password):**
+
+```
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+```
+
+4. (Optional) Exit the SSH session:
+
+```bash
+exit
+```
+
+**Output:**
+
+```
+logout
+Connection to bandit.labs.overthewire.org closed.
+```
+
+---
+
+## Password obtained for Level 2 → Level 3
+
+**Password:** `MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx`
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit2@bandit.labs.overthewire.org` → `ls` → `cat -- "--spaces in this filename--"` → `exit`.
+* The password for the next level is the contents of the file named `--spaces in this filename--`, displayed with `cat` and captured above.
+
+---
+
+
