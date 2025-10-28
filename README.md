@@ -556,3 +556,166 @@ Connection to bandit.labs.overthewire.org closed.
 
 
 
+# OverTheWire Bandit — Level 5 → Level 6
+
+This README documents the exact commands used (in order), their outputs, and the password obtained for **Bandit level 5 → level 6**.  (Only the useful commands are included.)
+
+---
+
+## Prerequisites
+
+* SSH client (OpenSSH)
+* Network access to `bandit.labs.overthewire.org` on port `2220`
+
+---
+
+## Commands, outputs, and password
+
+1. Connect to the level:
+
+```bash
+ssh -p 2220 bandit5@bandit.labs.overthewire.org
+```
+
+*(SSH password prompt and successful login banner are shown in the session; omitted here for brevity.)*
+
+2. List and enter the `inhere` directory:
+
+```bash
+ls
+cd ./inhere
+ls
+```
+
+**Output (directory listing):**
+
+```
+maybehere00  maybehere04  maybehere08  maybehere12  maybehere16
+maybehere01  maybehere05  maybehere09  maybehere13  maybehere17
+maybehere02  maybehere06  maybehere10  maybehere14  maybehere18
+maybehere03  maybehere07  maybehere11  maybehere15  maybehere19
+```
+
+3. Use `find` to inspect contents recursively (optional verbose listing):
+
+```bash
+find ./*
+```
+
+**Output:** (truncated — shows all `maybehereXX` directories and their files)
+
+```
+./maybehere00
+./maybehere00/.file1
+... (many entries)
+./maybehere19/-file3
+```
+
+4. Detailed listing to check permissions and sizes:
+
+```bash
+ls -l
+```
+
+**Output:** (shows directories owned by `root:bandit5` — truncated)
+
+```
+total 80
+drwxr-x--- 2 root bandit5 4096 Oct 14 09:26 maybehere00
+...
+drwxr-x--- 2 root bandit5 4096 Oct 14 09:26 maybehere19
+```
+
+5. Find the readable non-executable file of size 1033 bytes and show it. The `find` command used was:
+
+```bash
+find -size 1033c -readable ! -executable
+```
+
+**Output:**
+
+```
+./maybehere07/.file2
+```
+
+6. Display the password (contents of the found file):
+
+```bash
+cat ./maybehere07/.file2
+```
+
+**Output (the password for the next level):**
+
+```
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+```
+
+7. (Optional) exit the SSH session:
+
+```bash
+exit
+```
+
+---
+
+## Password obtained for Level 5 → Level 6
+
+**Password:** `HWasnPhtq9AVKe0dmk45nxy20cvUa6EG`
+
+---
+
+
+
+
+
+# Bandit Level 6 → 7
+
+**SSH into Bandit6:**
+
+```bash
+ssh -p 2220 bandit6@bandit.labs.overthewire.org
+```
+
+**List files (default is empty):**
+
+```bash
+ls
+ls -l
+ls -la
+```
+
+**Goal:** Find the file owned by `bandit7`, group `bandit6`, size 33 bytes (password for next level).
+
+**Correct `find` command:**
+
+```bash
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+```
+
+**Output (found file):**
+
+```
+/var/lib/dpkg/info/bandit7.password
+```
+
+**View the password for next level:**
+
+```bash
+cat /var/lib/dpkg/info/bandit7.password
+```
+
+**Password (Bandit7):**
+
+```
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+```
+
+
+
+
+
+
+
+
+
+
