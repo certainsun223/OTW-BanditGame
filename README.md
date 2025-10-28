@@ -30,7 +30,7 @@ This README documents the exact commands used (in order), their outputs, and the
 ssh bandit.labs.overwire.org -p 2220
 ```
 
-*(No further output shown in the transcript for this exact command — the user subsequently tried the correct username form.)*
+
 
 2. Connect with the `bandit0` username (correct form):
 
@@ -876,7 +876,8 @@ sort data.txt | uniq -u
 **Output:**
 
 ```
-<hint: the unique line output containing the password>
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
 ```
 
 ---
