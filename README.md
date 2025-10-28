@@ -944,4 +944,96 @@ E========== is
 
 ---
 
-*This README contains only the exact inputs/outputs as requested.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+# OverTheWire Bandit — Level 10 → Level 11
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 10 → level 11**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+Below are **only** the exact input commands that produced the correct output and their corresponding outputs.
+
+1. Connect with the `bandit10` username:
+
+```bash
+# Input
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
+
+# Output / interaction (condensed)
+# SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner and a shell prompt.
+```
+
+2. List files in the home directory:
+
+```bash
+# Input
+ls
+
+# Output
+data.txt
+```
+
+3. Inspect `base64` manual (optional, shown in transcript):
+
+```bash
+# Input
+man base64
+
+# Output
+# (manual page displayed; omitted here as it is informational and not required for extraction)
+```
+
+4. Decode the Base64-encoded file to reveal the password:
+
+```bash
+# Input
+base64 -d data.txt
+
+# Output
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+```
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit10@bandit.labs.overthewire.org` → `ls` → `base64 -d data.txt`.
+* The password for the next level is: `dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr`.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
