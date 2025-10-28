@@ -819,10 +819,3 @@ millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 
 ---
 
-## Notes & etiquette
-
-* OverTheWire requests that players **do not post level passwords publicly**. Keep the password private between you and the game's next step unless you are sharing inside a private classroom or study group.
-
----
-
-If you want, I can convert this README into a downloadable `Bandit-Level-7-to-8-README.md` file.
