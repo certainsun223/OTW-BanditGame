@@ -1037,3 +1037,97 @@ The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# OverTheWire Bandit — Level 11 → Level 12
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 11 → level 12**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+Below are **only** the exact input commands that produced the correct output and their corresponding outputs.
+
+1. Connect with the `bandit11` username:
+
+```bash
+# Input
+ssh -p 2220 bandit11@bandit.labs.overthewire.org
+
+# Output / interaction (condensed)
+# SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner and a shell prompt.
+```
+
+2. List files in the home directory:
+
+```bash
+# Input
+ls
+
+# Output
+data.txt
+```
+
+3. Display the contents of `data.txt` using `cat`:
+
+```bash
+# Input
+cat data.txt
+
+# Output
+Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4
+```
+
+4. Attempting to reverse hex (no readable output):
+
+```bash
+# Input
+xxd -r data.txt
+
+# Output
+# (Binary/unreadable output omitted)
+```
+
+5. Decode ROT13 text using `tr`:
+
+```bash
+# Input
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+# Output
+The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit11@bandit.labs.overthewire.org` → `ls` → `xxd -u data.txt` → `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`.
+* The password for the next level is: `7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4`.
+
+---
+
+*This README contains only the exact inputs/outputs as requested.*
