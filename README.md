@@ -806,16 +806,82 @@ millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 
 ---
 
-## Password obtained for Level 7 → Level 8
-
-**Password:** `dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc`
-
----
-
 ## Minimal summary
 
 * Commands used in order: `ssh -p 2220 bandit7@bandit.labs.overthewire.org` → `ls` → `ls -l`/`head -n 10 data.txt` → `grep millionth data.txt`.
 * The password for the next level is the second column on the `millionth` line in `data.txt` and is captured above.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# OverTheWire Bandit — Level 8 → Level 9
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 8 → level 9**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
 ---
 
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Connect with the `bandit8` username:
+
+```bash
+ssh -p 2220 bandit8@bandit.labs.overthewire.org
+```
+
+**Output / interaction** (condensed):
+
+* SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner.
+
+2. List files in the home directory:
+
+```bash
+ls
+```
+
+**Output:**
+
+```
+data.txt
+```
+
+3. Use the `sort` and `uniq` command to find the unique line in the file:
+
+```bash
+sort data.txt | uniq -u
+```
+
+**Output:**
+
+```
+<hint: the unique line output containing the password>
+```
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit8@bandit.labs.overthewire.org` → `ls` → `sort data.txt | uniq -u`.
+* The password for the next level is the unique string returned by the final command.
