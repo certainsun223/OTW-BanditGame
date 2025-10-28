@@ -714,33 +714,85 @@ morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 
 
 
-
-
-
-
 # OverTheWire Bandit — Level 7 → Level 8
 
-This README includes the exact commands used (useful ones only), the output that reveals the password, and a set of one-liners to extract the password for **Bandit level 7 → level 8**.
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 7 → level 8**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
 
 ---
 
-## Steps (useful commands)
+## Prerequisites
 
-1. SSH into the level:
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+1. Connect with the `bandit7` username:
 
 ```bash
 ssh -p 2220 bandit7@bandit.labs.overthewire.org
 ```
 
-2. List files and inspect `data.txt`:
+**Output / interaction** (condensed):
+
+* SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner.
+
+2. List files in the home directory:
 
 ```bash
 ls
+```
+
+**Output:**
+
+```
+data.txt
+```
+
+3. Attempt to `cd` into the file (demonstrated mistakes in the transcript):
+
+```bash
+cd data.txt
+cd ./data.txt
+```
+
+**Output:**
+
+```
+-bash: cd: data.txt: Not a directory
+```
+
+4. Inspect the file and its ownership/size:
+
+```bash
 ls -l
 head -n 10 data.txt
 ```
 
-3. Search for the target word `millionth` and display its line:
+**Output (truncated):**
+
+```
+total 4088
+-rw-r----- 1 bandit8 bandit7 4184396 Oct 14 09:26 data.txt
+
+# head -n 10 data.txt
+Krishnamurti	qw8nXVhFD5bTB8g5qt8MQqgmvwKjGe3B
+twice	ShdFKBKXyAD4vabgf4gRFGsSSTfd8JAQ
+sprucest	d64AVQB1lcJvA3dMlluHBPaKjlRRMOeL
+crosses	zlRV9E0QNc3CBQlzE8GLh3Kax2JIo901
+apprehending	Rh0DHqfvw8Ze1v82wyf4j0K6czbLlcNX
+clutters	hAUm5ZUYJXxhIk1Uu8OinBU75HMk6SPH
+prisoners	8FNhExxaVru0aA1eCXrAMbyOyrIo0F5M
+Renee	VYfLkTfaEgJA7oVfmTr3spGORUCSoook
+tweak	cGziWWRhIALtBq6vHS2B8Fw1qlob8byT
+Lin	njF0006Ac01XsliZRdBHE1lQpyQxMYuW
+```
+
+5. Find the line containing the word `millionth` using `grep` and display it:
 
 ```bash
 grep millionth data.txt
@@ -752,53 +804,25 @@ grep millionth data.txt
 millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 ```
 
-4. One-liners to extract just the password (choose any):
-
-* `grep` + `cut` (tab-separated):
-
-```bash
-grep millionth data.txt | cut -f2
-```
-
-* `awk` (tab as field separator):
-
-```bash
-awk -F'\t' '/millionth/ {print $2}' data.txt
-```
-
-* `awk` (works with any whitespace):
-
-```bash
-awk '/millionth/ {print $2}' data.txt
-```
-
-* `sed` (tab-separated extraction):
-
-```bash
-sed -n 's/^millionth\t\(.*\)/\1/p' data.txt
-```
-
-* `perl` (regex, tolerant of spaces/tabs):
-
-```bash
-perl -ne 'print $1 if /^millionth\s+(\S+)/' data.txt
-```
-
 ---
 
-## Password for Bandit8
+## Password obtained for Level 7 → Level 8
 
 **Password:** `dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc`
 
 ---
 
+## Minimal summary
 
+* Commands used in order: `ssh -p 2220 bandit7@bandit.labs.overthewire.org` → `ls` → `ls -l`/`head -n 10 data.txt` → `grep millionth data.txt`.
+* The password for the next level is the second column on the `millionth` line in `data.txt` and is captured above.
 
+---
 
+## Notes & etiquette
 
+* OverTheWire requests that players **do not post level passwords publicly**. Keep the password private between you and the game's next step unless you are sharing inside a private classroom or study group.
 
+---
 
-
-
-
-
+If you want, I can convert this README into a downloadable `Bandit-Level-7-to-8-README.md` file.
