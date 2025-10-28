@@ -1122,4 +1122,113 @@ The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
 ---
 
-*This README contains only the exact inputs/outputs as requested.*
+
+
+
+
+
+
+
+
+# OverTheWire Bandit — Level 12 → Level 13
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 12 → level 13**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+Below are **only** the exact input commands that produced the correct output and their corresponding outputs.
+
+1. Connect with the `bandit12` username:
+
+```bash
+# Input
+ssh -p 2220 bandit12@bandit.labs.overthewire.org
+
+# Output / interaction (condensed)
+# SSH prompts for the password and on success shows the OverTheWire/Bandit welcome banner and a shell prompt.
+```
+
+2. List files in the home directory:
+
+```bash
+# Input
+ls
+
+# Output
+data.txt
+```
+
+3. Create a working directory in /tmp (attempted):
+
+```bash
+# Input
+mkdir /tmp/lvl12
+
+# Output
+mkdir: cannot create directory ‘/tmp/lvl12’: File exists
+```
+
+4. Change to the working directory and list its contents:
+
+```bash
+# Input
+cd /tmp/lvl12
+
+# Input
+ls
+
+# Output
+data5.bin  data8.bin  data8.bin.bz2  data.txt  lvl12-re.out
+```
+
+5. Identify file type of `data8.bin`:
+
+```bash
+# Input
+file data8.bin
+
+# Output
+data8.bin: ASCII text
+```
+
+6. Display the contents of `data8.bin` to reveal the password:
+
+```bash
+# Input
+cat data8.bin
+
+# Output
+The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+```
+
+---
+
+## Minimal summary
+
+* Commands used in order: `ssh -p 2220 bandit12@bandit.labs.overthewire.org` → `ls` → `mkdir /tmp/lvl12` → `cd /tmp/lvl12` → `ls` → `file data8.bin` → `cat data8.bin`.
+* The password for the next level is: `FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn`.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
