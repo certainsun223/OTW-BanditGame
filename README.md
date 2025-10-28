@@ -885,3 +885,63 @@ sort data.txt | uniq -u
 
 * Commands used in order: `ssh -p 2220 bandit8@bandit.labs.overthewire.org` → `ls` → `sort data.txt | uniq -u`.
 * The password for the next level is the unique string returned by the final command.
+
+
+
+
+
+# OverTheWire Bandit — Level 8 → Level 9
+
+This README documents the exact commands used (in order), their outputs, and the password obtained at the end of the level for **Bandit level 8 → level 9**.
+
+> Note: this file reproduces the session transcript you provided and formats it into a clear, step-by-step README. Do not share the password publicly (OverTheWire asks players not to post spoilers).
+
+---
+
+## Prerequisites
+
+* SSH client installed (OpenSSH).
+* Network access to `bandit.labs.overthewire.org` on port `2220`.
+
+---
+
+## Session steps (commands, order, and outputs)
+
+Below are **only** the exact input commands that produced the correct output and their corresponding outputs.
+
+1. Extract printable strings from `data.txt` and filter by marker `==`:
+
+```bash
+# Input
+strings data.txt | grep ==
+
+# Output
+========== the
+========== password
+E========== is
+5========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+```
+
+2. Same command explicitly specifying single-byte encoding (equivalent output):
+
+```bash
+# Input
+strings -e s data.txt | grep ==
+
+# Output
+========== the
+========== password
+E========== is
+5========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+```
+
+---
+
+## Minimal summary
+
+* Commands used in order: `strings data.txt | grep ==` → `strings -e s data.txt | grep ==`.
+* The password for the next level (as shown in the outputs) is the token: `FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey`.
+
+---
+
+*This README contains only the exact inputs/outputs as requested.*
