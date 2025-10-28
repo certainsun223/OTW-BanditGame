@@ -1101,17 +1101,9 @@ cat data.txt
 Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4
 ```
 
-4. Attempting to reverse hex (no readable output):
 
-```bash
-# Input
-xxd -r data.txt
 
-# Output
-# (Binary/unreadable output omitted)
-```
-
-5. Decode ROT13 text using `tr`:
+4. Decode ROT13 text using `tr`:
 
 ```bash
 # Input
