@@ -1,6 +1,6 @@
 # OTW-BanditGame — Complete Walkthrough
 
-Personal notes, hints, and exact commands used while solving OverTheWire — **Bandit**. **Contains spoilers / passwords** — do not publish.
+Personal notes, hints, and exact commands used while solving OverTheWire — **Bandit**. **Contains spoilers / passwords** 
 
 ---
 
