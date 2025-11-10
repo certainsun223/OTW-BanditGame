@@ -205,7 +205,3 @@ echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
 
 **Password:** `8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo`
 
----
-
-✅ **All commands and passwords are included in sequence** for Bandit levels 0 through 15.
-This format is compact, readable, and ready to use as a single markdown reference.
